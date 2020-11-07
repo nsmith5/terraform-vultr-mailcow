@@ -1,3 +1,9 @@
+# Vim
+*.swp
+
+# Local environment-vars
+.env
+
 # Local .terraform directories
 **/.terraform/*
 
