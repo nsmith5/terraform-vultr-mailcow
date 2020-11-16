@@ -11,7 +11,7 @@ Terraform module that creates an Vultr instance running [Mailcow][mailcow] on
 [mailcow]: https://mailcow.email/
 [fcos]: https://docs.fedoraproject.org/en-US/fedora-coreos/
 
-## Usage
+## Installation
 
 Module usage is basically the same as `vultr_server`, with a few differences:
 
@@ -40,3 +40,20 @@ resource "vultr_reverse_ipv4" "ptr_record" {
   reverse     = "mail.example.com"
 }
 ```
+
+## Operation
+
+The mailcow server can be accessed using SSH. You'll need the SSH key you
+provided in the `ssh_key` variable and the IP address assigned to the server
+(`module.mailcow.server.main_ip`).
+
+```
+$ ssh core@{server-ip-address}
+```
+
+You're configuration is available at `/opt/mailcow-dockerized`. It may take a
+minute to become available. If in doubt, run `systemctl status
+clone-mailcow.service` to check the status of config set up.
+
+Mailcow is running as the systemd `mailcow`. You can check its status with
+`systemctl status mailcow.service` and get logs with `journalctl -u mailcow`.
