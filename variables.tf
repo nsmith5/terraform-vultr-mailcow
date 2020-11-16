@@ -16,7 +16,7 @@ variable "plan_id" {
 variable "firewall_group_id" {
   description = "(Optional) The ID of the firewall group to assign to the server."
   type        = string
-  default     = null
+  default     = ""
 }
 
 variable "network_ids" {
@@ -64,23 +64,23 @@ variable "ddos_protection" {
 variable "hostname" {
   description = "(Optional) The hostname to assign to the server."
   type        = string
-  default     = null
+  default     = ""
 }
 
 variable "tag" {
   description = "(Optional) The tag to assign to the server."
   type        = string
-  default     = null
+  default     = ""
 }
 
 variable "label" {
   description = "(Optional) A label for the server."
   type        = string
-  default     = null
+  default     = ""
 }
 
 variable "reserved_ip" {
   description = "(Optional) IP address of the floating IP to use as the main IP of this server."
   type        = string
-  default     = null
+  default     = ""
 }
