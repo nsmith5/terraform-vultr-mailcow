@@ -31,7 +31,7 @@ resource "vultr_dns_record" "mx" {
   name     = ""
   data     = "mail.${var.domain}"
   type     = "MX"
-  priority = "10" 
+  priority = "10"
 }
 
 resource "vultr_reverse_ipv4" "ptr" {
@@ -43,7 +43,7 @@ resource "vultr_reverse_ipv4" "ptr" {
 module "mailcow" {
   source    = "./../.."
   conf      = file("mailcow.conf")
-  ssh_key   = var.ssh_key 
+  ssh_key   = var.ssh_key
   region_id = "4"
   plan_id   = "401"
   label     = "mail.${var.domain}"
