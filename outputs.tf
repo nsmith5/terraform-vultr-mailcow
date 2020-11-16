@@ -1,3 +1,3 @@
-output "mailcow_server" {
+output "server" {
   value = vultr_server.mailcow
 }

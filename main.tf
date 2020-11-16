@@ -2,6 +2,7 @@ data "template_file" "fcct" {
   template = file("${path.module}/fcct.yaml")
   vars = {
     base64_conf = base64encode(var.conf)
+    ssh_key     = var.ssh_key
   }
 }
 
@@ -19,7 +20,6 @@ resource "vultr_server" "mailcow" {
   plan_id                = var.plan_id
   firewall_group_id      = var.firewall_group_id
   network_ids            = var.network_ids
-  ssh_key_ids            = var.ssh_key_ids
   auto_backup            = var.auto_backup
   enable_ipv6            = var.enable_ipv6
   enable_private_network = var.enable_private_network

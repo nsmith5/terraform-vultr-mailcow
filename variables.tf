@@ -3,6 +3,11 @@ variable "conf" {
   type        = string
 }
 
+variable "ssh_key" {
+  description = "SSH public key for the core user"
+  type        = string
+}
+
 variable "region_id" {
   description = "(Required) The ID of the region that the server is to be created in"
   type        = string
@@ -21,12 +26,6 @@ variable "firewall_group_id" {
 
 variable "network_ids" {
   description = "(Optional) A list of private network IDs to be attached to the server."
-  type        = list(string)
-  default     = []
-}
-
-variable "ssh_key_ids" {
-  description = "(Optional) A list of SSH key IDs to apply to the server on install (only valid for Linux/FreeBSD)."
   type        = list(string)
   default     = []
 }

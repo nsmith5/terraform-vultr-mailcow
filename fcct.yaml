@@ -1,5 +1,13 @@
 variant: fcos
 version: 1.1.0
+passwd:
+  users:
+  - name: core
+    ssh_authorized_keys:
+    - "${ssh_key}"
+    groups:
+    - sudo
+    - docker
 systemd:
   units:
   - name: clone-mailcow.service
