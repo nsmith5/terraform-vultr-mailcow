@@ -14,7 +14,7 @@ data "ct_config" "fcct" {
 resource "vultr_server" "mailcow" {
   os_id     = "391" # Fedora CoreOS
   user_data = data.ct_config.fcct.rendered
-  
+
   region_id              = var.region_id
   plan_id                = var.plan_id
   firewall_group_id      = var.firewall_group_id
